@@ -2,7 +2,6 @@
 - name:  disable nodejs default version
   ansible.builtin.shell: dnf module disable nginx -y
 
-
 - name:  enabling Nginx 1.24
   ansible.builtin.shell: dnf module enable nginx:1.24 -y
 
