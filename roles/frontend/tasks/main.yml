@@ -13,8 +13,6 @@
 - name: Creating a  nginx conf file
   ansible.builtin.copy:
 
-
-
 - name: Enabling nginx service
   ansible.builtin.systemd_service:
     state: restarted
