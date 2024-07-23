@@ -1,4 +1,3 @@
-
 - name:  disable nodejs default version
   ansible.builtin.shell: dnf module disable nginx -y
 
