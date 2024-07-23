@@ -11,6 +11,8 @@
 
 - name: Creating a  nginx conf file
   ansible.builtin.copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
 
 - name: Enabling nginx service
   ansible.builtin.systemd_service:
