@@ -8,7 +8,7 @@
      state: absent
 
  - name: creating app directory
-   ansible.builtin.user:
+   ansible.builtin.file:
      path: "{{ app_path }}"
      state: directory
 
