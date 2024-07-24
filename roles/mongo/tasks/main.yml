@@ -1,6 +1,6 @@
 
  - name:  Copy MongoDB repo file
-   ansible.builtin.shell:
+   ansible.builtin.copy:
      src: mongo.repo
      dest: /etc/yum.repos.d/mongo.repo
 
@@ -10,7 +10,7 @@
      name: mongodb-org
      state: latest
 
- - name:  update mongod.conf file
+ - name:  update mongod conf file
    ansible.builtin.replace:
      path: /etc/mongo.conf
      regexp: '127.0.0.1'
