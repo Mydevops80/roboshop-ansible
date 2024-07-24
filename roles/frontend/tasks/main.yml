@@ -17,7 +17,7 @@
 - name: Setup APP prerequisites
   ansible.builtin.include_role:
     name: common
-    tasks_from: app_prereq
+    tasks_from: app-prereq
 
 - name: Enabling nginx service
   ansible.builtin.systemd_service:
