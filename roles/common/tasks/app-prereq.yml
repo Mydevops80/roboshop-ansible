@@ -4,8 +4,8 @@
 
  - name: removing  application content
    ansible.builtin.file:
-   path: "{{ app_path }}"
-   state: absent
+     path: "{{ app_path }}"
+     state: absent
 
  - name: creating app directory
    ansible.builtin.user:
