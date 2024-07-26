@@ -6,7 +6,7 @@
 - name : Install MongoDB client
   ansible.builtin.dnf:
     name: mongodb-mongosh
-    state: disabled
+    state: latest
 
 
 - name: load master data
