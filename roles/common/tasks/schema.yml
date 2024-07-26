@@ -9,4 +9,4 @@
     state: latest
 
 - name: load master data
-  ansible.builtin.shell: mongosh --host </app/db/master-data.js
+  ansible.builtin.shell: mongosh --host mongo.heydevops.online </app/db/master-data.js
