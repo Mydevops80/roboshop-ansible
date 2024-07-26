@@ -3,10 +3,11 @@
     src:mongo.repo
     dest:/etc/yum.repos.mongo.repo
 
-- name : Install MOngoDB client
+- name : Install MongoDB client
   ansible.builtin.dnf:
     name: mongodb-mongosh
-    state: latest
+    state: disabled
+
 
 - name: load master data
   ansible.builtin.shell: mongosh --host mongo.heydevops.online </app/db/master-data.js
