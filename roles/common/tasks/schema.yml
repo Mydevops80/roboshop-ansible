@@ -8,6 +8,5 @@
     name: mongodb-mongosh
     state: latest
 
-
 - name: load master data
   ansible.builtin.shell: mongosh --host mongo.heydevops.online </app/db/master-data.js
