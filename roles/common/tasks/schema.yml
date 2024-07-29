@@ -1,12 +1,29 @@
-- name: Copy mongoDB repo file
-  ansible.builtin.copy:
-    src:mongo.repo
-    dest:/etc/yum.repos.mongo.repo
+- name: Load mongo db schema
+  when: schema_setup == "mongo"
+  block:
+  - name: Copy mongoDB repo file
+    ansible.builtin.copy:
+      src:mongo.repo
+      dest:/etc/yum.repos.mongo.repo
 
-- name : Install MongoDB client
-  ansible.builtin.dnf:
-    name: mongodb-mongosh
-    state: latest
+  - name : Install MongoDB client
+    ansible.builtin.dnf:
+      name: mongodb-mongosh
+      state: latest
 
-- name: load master data
-  ansible.builtin.shell: mongosh --host mongo.heydevops.online </app/db/master-data.js
+  - name: load master data
+    ansible.builtin.shell: mongosh --host mongo.heydevops.online </app/db/{{ item }}.js
+    loop: "{{schema_files}}"
+
+
+- name: Load mysql schema
+  when: schema_setup == "mysql"
+  block:
+    - name: install mysql client
+      ansible.builtin.dnf:
+        name: mysql
+        state: latest
+
+    - name: load master data
+      ansible.builtin.shell: mysql --host mysql.heydevops.online -uroot -pRoboshop@1  < /app/db/{{ item }}.sql
+      loop: "{{schema_files}}"
