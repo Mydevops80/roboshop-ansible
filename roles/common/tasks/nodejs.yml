@@ -12,7 +12,7 @@
  - name:  setup app prerequisites
    ansible.builtin.include_role:
      name: common
-     tasks_from: app_prereq
+     tasks_from: app-prereq
 
  - name: download nodejs dependencies
    ansible.builtin.shell: npm install
