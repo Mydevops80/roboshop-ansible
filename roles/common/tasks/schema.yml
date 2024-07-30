@@ -1,19 +1,19 @@
 - name: Load mongo db schema
   when: schema_setup == "mongo"
   block:
-  - name: Copy mongoDB repo file
-    ansible.builtin.copy:
-      src:mongo.repo
-      dest:/etc/yum.repos.mongo.repo
+- name: Copy mongoDB repo file
+  ansible.builtin.copy:
+    src:mongo.repo
+    dest:/etc/yum.repos.mongo.repo
 
-  - name : Install MongoDB client
-    ansible.builtin.dnf:
-      name: mongodb-mongosh
-      state: latest
+- name : Install MongoDB client
+  ansible.builtin.dnf:
+    name: mongodb-mongosh
+    state: latest
 
-  - name: load master data
-    ansible.builtin.shell: mongosh --host mongo.heydevops.online </app/db/{{ item }}.js
-    loop: "{{schema_files}}"
+- name: load master data
+  ansible.builtin.shell: mongosh --host mongo.heydevops.online </app/db/{{ item }}.js
+  loop: "{{schema_files}}"
 
 
 - name: Load mysql schema
