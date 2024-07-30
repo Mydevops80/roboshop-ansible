@@ -1,2 +1,3 @@
-- name: Set Promt
-  ansible.builtin.shell: set-prompt {{ component }}
+
+dependencies:
+  - role: common
