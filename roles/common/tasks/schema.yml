@@ -2,9 +2,9 @@
   when: schema_setup == "mongo"
   block:
 - name: Copy mongoDB repo file
-  ansible.builtin.copy:
-    src:mongo.repo
-    dest:/etc/yum.repos.mongo.repo
+  ansible.builtin.template:
+    src: mongo.repo
+    dest: /etc/yum.repos.mongo.repo
 
 - name : Install MongoDB client
   ansible.builtin.dnf:
