@@ -11,7 +11,7 @@
 - name: Download dependencies
   ansible.builtin.shell: mvn clean package ; mv target/{{ component }}-1.0.jar {{ componenet }}.jar
   args:
-    chdir: {{app_path}}
+    chdir: "{{ app_path }}"
 
 - name: load schema
   ansible.builtin.include_role:
